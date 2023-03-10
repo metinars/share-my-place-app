@@ -1,8 +1,7 @@
-import { async } from "regenerator-runtime";
 const GOOGLE_API_KEY = 'AIzaSyDXZv0kzus-IsA2gpEprB0LaAdVoVadHxY&callback=initMap&v=weekly';
 
-export async function getCoordFromAddress(address) {
-    const urlAddress = encodeURL(address);
+export async function getCoordsFromAddress(address) {
+    const urlAddress = encodeURI(address);
     const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${urlAddress}&key=${GOOGLE_API_KEY}`);
     if (!response.ok) {
         throw new Error('Failed to fetch coordinates. Please try again!');
